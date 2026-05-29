@@ -4,10 +4,11 @@ CREATE DATABASE tarefas_db;
 \c tarefas_db;
 -- Criar tabela de tarefas
 CREATE TABLE IF NOT EXISTS tarefas (
-id SERIAL PRIMARY KEY,
-titulo VARCHAR(255) NOT NULL,
-concluida BOOLEAN DEFAULT false,
-data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    id           SERIAL PRIMARY KEY,
+    titulo       VARCHAR(255) NOT NULL,
+    descricao    TEXT,                    -- linha nova
+    concluida    BOOLEAN DEFAULT false,
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 -- Inserir dados iniciais
 INSERT INTO tarefas (titulo, concluida) VALUES
