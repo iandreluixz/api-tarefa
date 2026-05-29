@@ -9,7 +9,7 @@ class TarefaRepository {
     return result.rows.map(Tarefa.fromRow);
   }
 
-  // EXERCÍCIO 2: busca tarefas filtrando pelo campo "concluida"
+  
   static async findByStatus(concluida) {
     const result = await pool.query(
       "SELECT * FROM tarefas WHERE concluida = $1 ORDER BY data_criacao DESC",
@@ -26,7 +26,7 @@ class TarefaRepository {
     return result.rows[0] ? Tarefa.fromRow(result.rows[0]) : null;
   }
 
-  // EXERCÍCIO 1: INSERT agora inclui o campo "descricao"
+  
   static async create(titulo, descricao) {
     const result = await pool.query(
       "INSERT INTO tarefas (titulo, descricao) VALUES ($1, $2) RETURNING *",
@@ -35,7 +35,7 @@ class TarefaRepository {
     return Tarefa.fromRow(result.rows[0]);
   }
 
-  // EXERCÍCIO 1: UPDATE completo inclui "descricao"
+  
   static async update(id, data) {
     const { titulo, descricao, concluida } = data;
     const result = await pool.query(
@@ -48,7 +48,7 @@ class TarefaRepository {
     return result.rows[0] ? Tarefa.fromRow(result.rows[0]) : null;
   }
 
-  // EXERCÍCIO 1: PATCH permite atualizar "descricao" parcialmente
+  
   static async updatePartial(id, fields) {
     const camposPermitidos = ["titulo", "descricao", "concluida"];
     const updates = [];

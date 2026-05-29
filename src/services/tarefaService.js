@@ -1,7 +1,7 @@
 const TarefaRepository = require("../repositories/tarefaRepository");
 
 class TarefaService {
-  // EXERCÍCIO 2: se "concluida" vier como query param, filtra; senão lista todas
+ 
   static async listarTarefas(concluida) {
     if (concluida !== undefined) {
       const status = concluida === "true" || concluida === true;
@@ -14,7 +14,7 @@ class TarefaService {
     return await TarefaRepository.findById(id);
   }
 
-  // EXERCÍCIO 1: criarTarefa agora recebe e repassa "descricao"
+  
   static async criarTarefa(titulo, descricao) {
     if (!titulo) {
       throw { status: 400, message: 'O campo "titulo" é obrigatório' };
@@ -22,7 +22,7 @@ class TarefaService {
     return await TarefaRepository.create(titulo, descricao);
   }
 
-  // EXERCÍCIO 1: atualizarCompleto repassa "descricao" para o repository
+  
   static async atualizarCompleto(id, data) {
     if (!data.titulo) {
       throw { status: 400, message: 'O campo "titulo" é obrigatório' };

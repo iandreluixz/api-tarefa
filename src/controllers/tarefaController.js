@@ -1,7 +1,7 @@
 const TarefaService = require("../services/tarefaService");
 
 class TarefaController {
-  // EXERCÍCIO 2: lê req.query.concluida e repassa ao service para filtrar
+  
   static async listar(req, res) {
     try {
       const { concluida } = req.query;
@@ -30,7 +30,7 @@ class TarefaController {
     }
   }
 
-  // EXERCÍCIO 1: extrai "descricao" do body e passa para o service
+  
   static async criar(req, res) {
     try {
       const { titulo, descricao } = req.body;
